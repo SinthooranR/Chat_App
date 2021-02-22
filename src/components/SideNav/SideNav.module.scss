@@ -1,0 +1,56 @@
+.SideNav {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+  height: 100vh;
+  background-color: #2f3135;
+  .Top {
+    text-align: center;
+    background-color: #2f3135;
+    color: white;
+    border-bottom: 2px solid black;
+  }
+  .Convos {
+    flex: 1;
+    .Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #2f3135;
+      color: gray;
+    }
+    svg {
+      cursor: pointer;
+    }
+    .ScrollConvos {
+      overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 5px;
+      background: gray; /* make scrollbar transparent */
+    }
+  }
+  .Profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    background-color: #2f3135;
+    padding: 15px;
+    border-top: 1px solid gray;
+  }
+  div {
+    flex: 0.15;
+    padding: 10px;
+    h3 {
+      color: white;
+    }
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+    }
+  }
+}
