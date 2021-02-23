@@ -3,14 +3,14 @@
   flex-direction: column;
   flex: 0.25;
   height: 100vh;
-  background-color: #2f3135;
+  background-color: #e9e4f0;
+  border-right: 1px solid black;
   .Top {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #2f3135;
+    background-color: #075e54;
     color: white;
-    border-bottom: 2px solid gray;
     height: 7.5%;
   }
 
@@ -20,11 +20,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px 0 10px;
-    background-color: #2f3135;
-    color: gray;
+    background-color: #e9e4f0;
+    color: black;
     border-bottom: 1px solid gray;
     svg {
       cursor: pointer;
+    }
+    svg:hover {
+      background-color: #075e54;
+      color: white;
+      border-radius: 50%;
     }
   }
 
@@ -41,14 +46,23 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    color: gray;
-    background-color: #2f3135;
+    color: black;
+    background-color: #e9e4f0;
     padding: 15px;
     border-top: 1px solid gray;
     div {
       h3 {
-        color: white;
+        color: black;
       }
+    }
+    svg {
+      cursor: pointer;
+      padding: 10px;
+    }
+    svg:hover {
+      background-color: #075e54;
+      color: white;
+      border-radius: 50%;
     }
   }
 }

@@ -7,6 +7,8 @@ interface HeaderProps {
   convoName?: string | null;
 }
 
+// This components creats the Top Header of the chat component
+// it stores the conversation name grabbed by the redux state
 const Header = ({ convoName }: HeaderProps) => {
   return (
     <div className={classes.Header}>

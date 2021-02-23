@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser, login, logout } from "./features/userSlice";
 import ChatScreen from "./views/ChatScreen";
@@ -12,7 +11,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
-      console.log("user is:", authUser);
       if (authUser) {
         // the user is logged in
         dispatch(
@@ -30,17 +28,7 @@ function App() {
     });
   }, [dispatch]);
 
-  return (
-    <div>
-      <Switch>
-        {user ? (
-          <Route exact path="/" component={ChatScreen} />
-        ) : (
-          <Route exact path="/" component={LoginPage} />
-        )}
-      </Switch>
-    </div>
-  );
+  return <div>{user ? <ChatScreen /> : <LoginPage />}</div>;
 }
 
 export default App;

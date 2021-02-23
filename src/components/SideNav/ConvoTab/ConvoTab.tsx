@@ -8,6 +8,8 @@ interface ConvoTabProps {
   convoName?: string;
 }
 
+// These tabs are used for displaying conversations added into the public chat
+// this will allow us to update the redux state with its new conversation ID and name
 const ConvoTab = ({ id, convoName }: ConvoTabProps) => {
   const dispatch = useDispatch();
 
@@ -22,10 +24,7 @@ const ConvoTab = ({ id, convoName }: ConvoTabProps) => {
 
   return (
     <div className={classes.ConvoTab} onClick={selectCurrentConvo}>
-      <h4>
-        <span>#</span>
-        {convoName}
-      </h4>
+      <h4>{convoName}</h4>
     </div>
   );
 };

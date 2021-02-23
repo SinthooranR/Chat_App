@@ -1,19 +1,23 @@
 .ConvoTab {
+  display: flex;
+  background-color: #e9e4f0;
+  align-items: center;
+  border-bottom: 1px solid black;
   h4 {
     display: flex;
     padding-left: 15px;
     align-items: center;
-    background-color: #2f3135;
     width: 100%;
-    color: gray;
+    color: black;
+    font-size: 1.25rem;
+    padding: 8px;
     cursor: pointer;
-    span {
-      font-size: 30px;
-      padding: 8px;
-    }
   }
-  h4:hover {
+}
+
+.ConvoTab:hover {
+  background-color: #075e54;
+  h4 {
     color: white;
-    background-color: #40464b;
   }
 }

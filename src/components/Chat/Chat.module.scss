@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   flex: 0.75;
-  background-color: #363a3f;
+  background-color: #e9e4f0;
   height: 100vh;
   .Messages {
     flex: 1;
     overflow-y: scroll;
+    .NoMsgText {
+      margin-top: 5%;
+      text-align: center;
+    }
   }
   ::-webkit-scrollbar {
     display: none;
@@ -16,11 +20,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
-    border-top: 1px solid gray;
+    padding: 10px;
     margin: 20px;
-    border-top: 1px solid gray;
-    background-color: #474b53;
+    background-color: #d3cce3;
+    border-radius: 50px;
+
+    svg {
+      padding: 5px;
+      color: black;
+    }
     form {
       flex: 1;
       input {
@@ -28,15 +36,12 @@
         background: transparent;
         border: none;
         outline-width: 0;
-        color: white;
+        color: black;
         font-size: large;
         width: 100%;
       }
       button {
         display: none;
-      }
-      svg {
-        padding: 5px;
       }
     }
   }

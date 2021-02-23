@@ -1,0 +1,55 @@
+.Modal {
+  margin-top: 10%;
+  height: 50%;
+  outline: none;
+  margin-left: 25%;
+  width: 50%;
+  border: 1px solid black;
+  background-color: #075e54;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  animation: fadein 1s;
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Input {
+      width: 50%;
+      margin-bottom: 5%;
+      background-color: #d3cce3;
+      padding: 15px;
+      border-radius: 10px;
+      input {
+        width: 90%;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: large;
+      }
+    }
+    .Buttons {
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      button {
+        width: 25%;
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

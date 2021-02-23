@@ -25,3 +25,5 @@ yarn-error.log*
 
 # Extra
 src/firebase.ts
+.firebaserc
+/.firebase
