@@ -13,7 +13,7 @@ const SideNav = () => {
 
   useEffect(() => {
     // onSnapshot allows real time use and updates realTime for firebase
-    db.collection("channels").onSnapshot((snapshot) =>
+    db.collection("conversations").onSnapshot((snapshot) =>
       setConvos(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -27,7 +27,7 @@ const SideNav = () => {
     const channelName = prompt("Enter Channel Name");
 
     if (channelName) {
-      db.collection("channels").add({
+      db.collection("conversations").add({
         channelName: channelName,
       });
     }
@@ -36,32 +36,21 @@ const SideNav = () => {
   return (
     <div className={classes.SideNav}>
       <div className={classes.Top}>
-        <h2>Discord</h2>
+        <h2>Welcome</h2>
+      </div>
+      <div className={classes.Header}>
+        <h4>Public Chats</h4>
+        <AddIcon onClick={handleAddChannel} fontSize="large" />
       </div>
 
       <div className={classes.Convos}>
-        <div className={classes.Header}>
-          <h4>Public Chats</h4>
-          <AddIcon onClick={handleAddChannel} fontSize="large" />
-        </div>
-
-        <div className={classes.ScrollConvos}>
-          {convos.map((ch: any) => (
-            <ConvoTab
-              key={ch.id}
-              id={ch.id}
-              convoName={ch.channel.channelName}
-            />
-          ))}
-        </div>
+        {convos.map((ch: any) => (
+          <ConvoTab key={ch.id} id={ch.id} convoName={ch.channel.channelName} />
+        ))}
       </div>
 
       <div className={classes.Profile}>
-        <Avatar
-          variant="rounded"
-          src={user.photo}
-          onClick={() => auth.signOut()}
-        />
+        <Avatar src={user.photo} onClick={() => auth.signOut()} />
         <div>
           <h3>{user.displayName}</h3>
           <p>{user.email}</p>

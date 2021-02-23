@@ -4,19 +4,16 @@ import PeopleAltRoundedIcon from "@material-ui/icons/PeopleAltRounded";
 import classes from "./Header.module.scss";
 
 interface HeaderProps {
-  channelName?: string | null;
+  convoName?: string | null;
 }
 
-const Header = ({ channelName }: HeaderProps) => {
+const Header = ({ convoName }: HeaderProps) => {
   return (
-    <div className={classes.ChatHeader}>
-      <div className={classes.ChatHeaderLeft}>
-        <h3>
-          <span className={classes.ChatHeaderHash}>#</span>
-          {channelName!}
-        </h3>
+    <div className={classes.Header}>
+      <div className={classes.Left}>
+        <h2>{convoName!}</h2>
       </div>
-      <div className={classes.ChatHeaderRight}>
+      <div className={classes.Right}>
         <NotificationsIcon />
         <PeopleAltRoundedIcon />
       </div>

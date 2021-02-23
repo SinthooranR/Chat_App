@@ -15,10 +15,10 @@ const Message = ({ user, message, timestamp }: MessageProps) => {
   return (
     <div className={classes.Message}>
       <Avatar src={user.photo} />
-      <div className={classes.MessageInfo}>
+      <div className={classes.Info}>
         <h4>
           {user.displayName}
-          <span className={classes.MessageTimeStamp}>
+          <span className={classes.Time}>
             {timestamp && new Date(timestamp?.toDate()).toUTCString()}
           </span>
         </h4>

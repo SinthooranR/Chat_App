@@ -31,7 +31,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div style={{ display: "flex" }}>
+    <div>
       <Switch>
         {user ? (
           <Route exact path="/" component={ChatScreen} />

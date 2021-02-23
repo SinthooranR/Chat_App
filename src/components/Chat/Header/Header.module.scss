@@ -1,0 +1,28 @@
+.Header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: gray;
+  height: 7.5%;
+  border-bottom: 2px solid gray;
+  width: 100%;
+  .Left {
+    width: 50%;
+    h2 {
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+  }
+  .Right {
+    display: flex;
+    align-items: center;
+    flex: 0.5;
+    justify-content: space-evenly;
+    width: 50%;
+    svg {
+      padding: 5px;
+      cursor: pointer;
+    }
+  }
+}
