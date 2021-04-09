@@ -1,0 +1,48 @@
+.Chat {
+  display: flex;
+  flex-direction: column;
+  flex: 0.75;
+  background-color: #e9e4f0;
+  height: 100vh;
+  .Messages {
+    flex: 1;
+    overflow-y: scroll;
+    .NoMsgText {
+      margin-top: 5%;
+      text-align: center;
+    }
+  }
+  // ::-webkit-scrollbar {
+  //   display: none;
+  // }
+  .Input {
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    background-color: #d3cce3;
+    border-radius: 50px;
+
+    svg {
+      padding: 5px;
+      color: black;
+    }
+    form {
+      flex: 1;
+      input {
+        padding: 15px;
+        background: transparent;
+        border: none;
+        outline-width: 0;
+        color: black;
+        font-size: large;
+        width: 100%;
+      }
+      button {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.Message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  color: black;
+  .Info {
+    margin-left: 20px;
+  }
+
+  .Time {
+    color: black;
+    margin-left: 20px;
+    font-size: x-small;
+  }
+
+  .User {
+    background-color: orange;
+  }
+
+  .NotUser {
+    background-color: red;
+  }
+}

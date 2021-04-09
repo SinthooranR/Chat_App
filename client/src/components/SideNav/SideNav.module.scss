@@ -1,0 +1,71 @@
+.SideNav {
+  display: flex;
+  flex-direction: column;
+  flex: 0.25;
+  height: 100vh;
+  background-color: #e9e4f0;
+  border-right: 1px solid black;
+  .Top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #075e54;
+    color: white;
+    height: 7.5%;
+  }
+
+  .Header {
+    display: flex;
+    height: 7.5%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+    background-color: #e9e4f0;
+    color: black;
+    border-bottom: 1px solid gray;
+    svg {
+      cursor: pointer;
+    }
+    svg:hover {
+      background-color: #075e54;
+      color: white;
+      border-radius: 50%;
+    }
+  }
+
+  .Convos {
+    flex: 1;
+    overflow-y: scroll;
+    padding-top: 0;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .Profile {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+    background-color: #e9e4f0;
+    padding: 15px;
+    border-top: 1px solid gray;
+    .User {
+      background-color: orange;
+    }
+    div {
+      h3 {
+        color: black;
+      }
+    }
+    svg {
+      cursor: pointer;
+      padding: 10px;
+    }
+    svg:hover {
+      background-color: #075e54;
+      color: white;
+      border-radius: 50%;
+    }
+  }
+}
