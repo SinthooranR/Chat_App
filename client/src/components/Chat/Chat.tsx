@@ -22,7 +22,7 @@ const Chat = () => {
   const convoId = useSelector(setConvoId);
   const convoName = useSelector(setConvoName);
   const convoDesc = useSelector(setConvoDesc);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
 
   // Apollo Client helper functions
   const [sendMsgData] = useMutation(SEND_MESSAGE, {

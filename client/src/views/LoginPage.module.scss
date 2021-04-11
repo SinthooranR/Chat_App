@@ -23,9 +23,15 @@
       input {
         width: 75%;
         margin: 2.5% 0 0 10%;
-        padding: 20px;
+        padding: 20px 20px 15px 20px;
         outline: none;
-        border-radius: 10px;
+        border: none;
+        border-radius: 50px;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        font-size: 1.25rem;
+      }
+      ::placeholder {
+        font-size: 1.25rem;
       }
       button {
         width: 50%;

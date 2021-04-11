@@ -14,7 +14,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [isLogin, setIsLogin] = useState<boolean>(true);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<any>({});
   const dispatch = useDispatch();
 
   const [loginData] = useMutation(LOGIN, {
