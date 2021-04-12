@@ -14,6 +14,7 @@ const poolDevelopment = {
 // uses the Heroku Postgres Addon
 const poolProduction = {
   connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
 };
 
 module.exports = new Pool(
