@@ -8,7 +8,7 @@ const path = require("path");
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
 const pubsub = new PubSub();
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
@@ -33,7 +33,6 @@ const httpServer = createServer(app);
 server.installSubscriptionHandlers(httpServer);
 
 httpServer.listen({ port: PORT }, () => {
-  console.log("Listening on Port 5000");
   console.log(`GraphQL: http://localhost:${PORT}${server.graphqlPath}`);
   console.log(
     `Subscription: ws://localhost:${PORT}${server.subscriptionsPath}`
