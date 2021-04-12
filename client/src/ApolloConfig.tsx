@@ -26,14 +26,20 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 // proxy for Production
-
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000/graphql",
+  uri: "/graphql",
   credentials: "same-origin",
 });
 
+const devSubscriptionURL = "ws://localhost:5000/graphql";
+const prodSubscritionURL =
+  "ws://chat-app-postres-graphql.herokuapp.com/graphql";
+
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:5000/graphql`,
+  uri:
+    process.env.NODE_ENV === "production"
+      ? prodSubscritionURL
+      : devSubscriptionURL,
   options: {
     reconnect: true,
   },

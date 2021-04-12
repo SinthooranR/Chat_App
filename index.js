@@ -24,9 +24,9 @@ const server = new ApolloServer({
   },
 });
 
-app.get("*", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
+// app.get("*", (req, res, next) => {
+//   res.sendFile(path.join(__dirname, "client/build/index.html"));
+// });
 
 server.applyMiddleware({ app });
 const httpServer = createServer(app);
