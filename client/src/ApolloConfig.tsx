@@ -33,7 +33,7 @@ const httpLink = createHttpLink({
 
 const devSubscriptionURL = "ws://localhost:5000/graphql";
 const prodSubscritionURL =
-  "ws://chat-app-postres-graphql.herokuapp.com/graphql";
+  "wss://chat-app-postres-graphql.herokuapp.com/graphql";
 
 const wsLink = new WebSocketLink({
   uri:
