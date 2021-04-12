@@ -5,6 +5,8 @@ const resolvers = require("./graphql/resolvers");
 
 const pubsub = new PubSub();
 
+const PORT = process.env.port || 5000;
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -14,4 +16,7 @@ const server = new ApolloServer({
   },
 });
 
-server.listen({ port: 5000 }).then(() => console.log("Listening on Port 5000"));
+server
+  .listen({ port: PORT })
+  .then(() => console.log("Listening on Port 5000"))
+  .catch((err) => console.error(err));
