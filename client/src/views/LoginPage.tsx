@@ -35,6 +35,7 @@ const LoginPage = () => {
     onCompleted: (data) => dispatch(login(data.login)),
     onError: (err: any) => {
       checkError(err);
+      console.log(err.graphQLErrors[0].message);
     },
   });
 
@@ -42,6 +43,7 @@ const LoginPage = () => {
     onCompleted: (data) => dispatch(login(data.signup)),
     onError: (err: any) => {
       checkError(err);
+      console.log(err.graphQLErrors[0].message[0]);
     },
   });
 
@@ -115,7 +117,7 @@ const LoginPage = () => {
             </div>
           )}
 
-          {authErrors && (
+          {authErrors !== "" && (
             <div className={classes.Errors}>
               <p>*{authErrors}</p>
             </div>
