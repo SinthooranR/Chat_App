@@ -14,20 +14,31 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [isLogin, setIsLogin] = useState<boolean>(true);
-  const [errors, setErrors] = useState<any>({});
+  const [validationErrors, setValidationErrors] = useState<any>({});
+  const [authErrors, setAuthErrors] = useState<any>("");
   const dispatch = useDispatch();
+
+  const checkError = (err: any) => {
+    if (err.graphQLErrors[0].extensions.exception.errors) {
+      setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
+      setAuthErrors(null);
+    } else {
+      setValidationErrors({});
+      setAuthErrors(err.message);
+    }
+  };
 
   const [loginData] = useMutation(LOGIN, {
     onCompleted: (data) => dispatch(login(data.login)),
     onError: (err: any) => {
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      checkError(err);
     },
   });
 
   const [signupData] = useMutation(SIGNUP, {
     onCompleted: (data) => dispatch(login(data.signup)),
     onError: (err: any) => {
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      checkError(err);
     },
   });
 
@@ -48,7 +59,8 @@ const LoginPage = () => {
   };
 
   const handleLoginState = (event: MouseEvent<HTMLButtonElement>) => {
-    setErrors({});
+    setValidationErrors({});
+    setAuthErrors(null);
     setIsLogin((isLogin) => !isLogin);
   };
 
@@ -83,19 +95,25 @@ const LoginPage = () => {
           {!isLogin && (
             <input
               placeholder="Confirm Password"
-              type="text"
+              type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           )}
 
-          {Object.keys(errors).length > 0 && (
+          {Object.keys(validationErrors).length > 0 && (
             <div className={classes.Errors}>
               <ul>
-                {Object.values(errors).map((value: any) => (
+                {Object.values(validationErrors).map((value: any) => (
                   <li key={value}>*{value}</li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {authErrors && (
+            <div className={classes.Errors}>
+              <p>*{authErrors}</p>
             </div>
           )}
 
@@ -107,11 +125,6 @@ const LoginPage = () => {
           {isLogin ? "Switch to Sign Up" : "Switch to Sign Up"}
         </Button>
       </div>
-      {/* <p>
-        ***Note: If you end up using an account with an email already in the
-        Database, you will have to use the Login Method you originally proceeded
-        with***
-      </p> */}
     </div>
   );
 };

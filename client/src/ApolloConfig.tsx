@@ -26,12 +26,12 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000/",
+  uri: "http://localhost:5000/graphql",
   credentials: "same-origin",
 });
 
 const wsLink = new WebSocketLink({
-  uri: "ws://localhost:5000/subscriptions",
+  uri: `ws://localhost:5000/graphql`,
   options: {
     reconnect: true,
   },
