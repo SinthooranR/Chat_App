@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import React, { FormEvent, MouseEvent, useState } from "react";
-import { ApolloError, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { login } from "../features/userSlice";
 import { useDispatch } from "react-redux";
 import { LOGIN, SIGNUP } from "../graphql/user";
@@ -15,35 +15,23 @@ const LoginPage = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const [validationErrors, setValidationErrors] = useState<any>({});
-  const [authErrors, setAuthErrors] = useState<any>("");
   const dispatch = useDispatch();
-
-  const checkError = (err: any) => {
-    if (
-      err.graphQLErrors[0].extensions.exception.errors &&
-      err.graphQLErrors[0].message === "Errors"
-    ) {
-      setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
-      setAuthErrors(null);
-    } else {
-      setValidationErrors({});
-      setAuthErrors(err.graphQLErrors[0].message);
-    }
-  };
 
   const [loginData] = useMutation(LOGIN, {
     onCompleted: (data) => dispatch(login(data.login)),
     onError: (err: any) => {
-      checkError(err);
-      console.log(err.graphQLErrors[0].message);
+      if (err.graphQLErrors[0].extensions.exception.errors) {
+        setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
+      }
     },
   });
 
   const [signupData] = useMutation(SIGNUP, {
     onCompleted: (data) => dispatch(login(data.signup)),
     onError: (err: any) => {
-      checkError(err);
-      console.log(err.graphQLErrors[0].message[0]);
+      if (err.graphQLErrors[0].extensions.exception.errors) {
+        setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
+      }
     },
   });
 
@@ -64,9 +52,7 @@ const LoginPage = () => {
   };
 
   const handleLoginState = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
     setValidationErrors({});
-    setAuthErrors("");
     setIsLogin((isLogin) => !isLogin);
   };
 
@@ -116,13 +102,6 @@ const LoginPage = () => {
               </ul>
             </div>
           )}
-
-          {authErrors !== "" && (
-            <div className={classes.Errors}>
-              <p>*{authErrors}</p>
-            </div>
-          )}
-
           <Button variant="contained" color="default" type="submit">
             {isLogin ? "Login" : "Sign Up"}
           </Button>
@@ -130,6 +109,11 @@ const LoginPage = () => {
         <Button variant="contained" color="default" onClick={handleLoginState}>
           {isLogin ? "Switch to Sign Up" : "Switch to Sign Up"}
         </Button>
+
+        <p>
+          ***Note: Minor Validation Error at the moment, please refer to the
+          Console for Errors when Authenticating
+        </p>
       </div>
     </div>
   );
