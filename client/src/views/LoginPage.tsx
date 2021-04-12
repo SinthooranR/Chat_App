@@ -19,12 +19,15 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   const checkError = (err: any) => {
-    if (err.graphQLErrors[0].extensions.exception.errors) {
+    if (
+      err.graphQLErrors[0].extensions.exception.errors &&
+      err.graphQLErrors[0].message === "Errors"
+    ) {
       setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
       setAuthErrors(null);
-    } else if (err) {
+    } else {
       setValidationErrors({});
-      setAuthErrors(err.message);
+      setAuthErrors(err.graphQLErrors[0].message);
     }
   };
 
@@ -59,8 +62,9 @@ const LoginPage = () => {
   };
 
   const handleLoginState = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     setValidationErrors({});
-    setAuthErrors(null);
+    setAuthErrors("");
     setIsLogin((isLogin) => !isLogin);
   };
 
