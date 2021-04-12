@@ -22,7 +22,7 @@ const LoginPage = () => {
     if (err.graphQLErrors[0].extensions.exception.errors) {
       setValidationErrors(err.graphQLErrors[0].extensions.exception.errors);
       setAuthErrors(null);
-    } else {
+    } else if (err) {
       setValidationErrors({});
       setAuthErrors(err.message);
     }
