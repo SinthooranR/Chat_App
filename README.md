@@ -26,7 +26,7 @@ URL: https://chat-app-postres-graphql.herokuapp.com/
 ## Server
 
 - Must have PostgreSQL 12 Installed
-  - Can be found here: https://www.postgresql.org/
+  - Can be found here: https://chat-app-postgres.herokuapp.com
 - Create Database and use the queries from dbModel.sql
 - Update the pg Pool information in db.js with your Postgres information
 - In the Root directory of the project run `npm install`
