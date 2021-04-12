@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "v13.9.0",
+    "npm": "7.9.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "dev": "nodemon index.js"
   },
   "keywords": [],
@@ -15,6 +19,7 @@
     "apollo-server": "^2.22.2",
     "apollo-server-express": "^2.22.2",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",

@@ -25,6 +25,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
+// proxy for Production
+
 const httpLink = createHttpLink({
   uri: "http://localhost:5000/graphql",
   credentials: "same-origin",

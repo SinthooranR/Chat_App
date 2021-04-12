@@ -14,8 +14,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 }
 
-console.log(__dirname);
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -24,6 +22,10 @@ const server = new ApolloServer({
     onConnect: () => console.log("Connected"),
     onDisconnect: () => console.log("Disconnected"),
   },
+});
+
+app.get("*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 server.applyMiddleware({ app });
