@@ -1,4 +1,6 @@
-URL: https://chat-app-postres-graphql.herokuapp.com/
+# Can be viewed here:
+
+https://chat-app-postgres.herokuapp.com/
 
 ## Technologies Used
 
