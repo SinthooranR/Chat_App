@@ -1,5 +1,6 @@
 # Can be viewed here:
 
+NOTE: Needs to be redeployed
 https://chat-app-postgres.herokuapp.com/
 
 ## Technologies Used
